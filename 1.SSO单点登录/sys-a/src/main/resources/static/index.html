@@ -43,7 +43,7 @@
     function goToLoginServer() {
         alert("当前无登录信息，跳转到认证中心");
         localStorage.setItem("redirect", location.href);
-        location.href = encodeURI("http://localhost:8080/sso/static/index.html?order=checkLogin&redirect=" + window.location.origin + "/static/redirect.html");
+        location.href = encodeURI("http://localhost:48080/sso/static/index.html?order=checkLogin&redirect=" + window.location.origin + "/static/redirect.html");
     }
 
 </script>

@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 48080
   servlet:
     context-path: /sso
 spring:
@@ -9,7 +9,7 @@ spring:
     type: redis
   redis:
     database: 0
-    host: 10.82.27.177
+    host: 117.78.4.226
     port: 6379
     password:
     # 连接超时时间（ms)
