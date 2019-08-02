@@ -48,7 +48,7 @@ public class LoginFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
-        if (httpServletRequest.getRequestURI().startsWith("/static")) {
+        if (httpServletRequest.getRequestURI().startsWith("/static") ||httpServletRequest.getRequestURI().contains("login")) {
             UserContextHolder.remove();
             filterChain.doFilter(servletRequest, servletResponse);
             return;

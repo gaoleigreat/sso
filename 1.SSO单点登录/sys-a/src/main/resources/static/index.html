@@ -9,7 +9,8 @@
 <div style="align-content: center">当前登录用户：<span id="loginStatus"></span></div>
 <div>
     <button onclick="test()">测试接口访问</button>
-    <button onclick="clearToken()">注销登录</button>
+    <button onclick="clearToken()">注销登录 跳转到公共登录模块</button>
+    <button onclick="clearToken1()">注销登录跳转到自定义登录模块</button>
 </div>
 <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/Base64/1.0.2/base64.min.js"></script>
@@ -39,13 +40,22 @@
             goToLoginServer();
         })
     }
-
+    function clearToken1() {
+        $.get("/logout?token=" + localStorage.getItem("token"), function (res) {
+            localStorage.removeItem("token");
+            goToLoginServer1();
+        })
+    }
     function goToLoginServer() {
         alert("当前无登录信息，跳转到认证中心");
         localStorage.setItem("redirect", location.href);
         location.href = encodeURI("http://localhost:48080/sso/static/index.html?order=checkLogin&redirect=" + window.location.origin + "/static/redirect.html");
     }
-
+    function goToLoginServer1() {
+        alert("当前无登录信息，跳转到认证中心");
+        localStorage.setItem("redirect", location.href);
+        location.href = encodeURI("http://localhost:48099/static/mylogin.html?&redirect=" + window.location.origin + "/static/index1.html");
+    }
 </script>
 </body>
 </html>

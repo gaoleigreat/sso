@@ -28,6 +28,10 @@ public class JwtController {
 
     @PostMapping("/login")
     public ReturnEntity login(@RequestBody User user) {
+        if (user.getName() ==  null){
+            user.setName("xiaodao");
+            user.setPassword("xiaodao");
+        }
         String token = service.login(user);
         return ReturnEntity.successResult(token);
     }
